@@ -8,12 +8,22 @@ server.connection({
   port: 3000
 });
 
+// define prerequisite
+const pre1 = (request, reply) => {
+  return reply('Hello from the pre1');
+}
+
 // creating routes
 server.route({
   method: 'GET',
   path: '/',
   handler: (request, reply) => {
-    reply("Hello Hapi World!");
+    return reply(request.pre.m1);
+  },
+  config: {
+    pre: [
+      { method: pre1, assign: 'm1'}
+    ]
   }
 });
 
