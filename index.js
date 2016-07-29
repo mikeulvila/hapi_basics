@@ -10,19 +10,30 @@ server.connection({
 
 // define prerequisite
 const pre1 = (request, reply) => {
-  return reply('Hello from the pre1');
-}
+  return reply('Hello World');
+};
+
+const pre2 = (request, reply) => {
+  return reply('from hapi!');
+};
+
+const pre3 = (request, reply) => {
+  return reply(`${request.pre.m1} ${request.pre.m2}`);
+};
 
 // creating routes
 server.route({
   method: 'GET',
   path: '/',
   handler: (request, reply) => {
-    return reply(request.pre.m1);
+    return reply(request.pre.m3);
   },
   config: {
-    pre: [
-      { method: pre1, assign: 'm1'}
+    pre: [[
+      { method: pre1, assign: 'm1'},
+      { method: pre2, assign: 'm2'}
+    ],
+      { method: pre3, assign: 'm3'}
     ]
   }
 });
