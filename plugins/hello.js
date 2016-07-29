@@ -6,7 +6,7 @@ exports.register = function (server, options, next) {
     method: 'GET',
     path: '/plugin',
     handler: (request, reply) => {
-      return reply('Hello from the hello plugin!');
+      return reply('Hello from the hello plugin! ' + options.message);
     }
   });
 

@@ -18,20 +18,27 @@ server.route({
 });
 
 // register plugin
-server.register(require('./plugins/hello'), (err) => {
-  if (err) {
-    throw err;
-  }
-
-  // start the server
-  server.start((err) => {
+server.register({
+    register: require('./plugins/hello'),
+    options: { message: 'Greetings from the options message.'}
+  }, {
+    routes: {
+      prefix: '/v1'
+    }
+  }, (err) => {
     if (err) {
       throw err;
     }
 
-    console.log('server running on: ', server.info.uri);
+    // start the server
+    server.start((err) => {
+      if (err) {
+        throw err;
+      }
 
-  });
+      console.log('server running on: ', server.info.uri);
+
+    });
 
 });
 
