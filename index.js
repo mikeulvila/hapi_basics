@@ -18,10 +18,10 @@ server.route({
 });
 
 // register plugin
-server.register({
+server.register([{
     register: require('./plugins/hello'),
     options: { message: 'Greetings from the options message.'}
-  }, {
+  }, require('./plugins/dep')], {
     routes: {
       prefix: '/v1'
     }

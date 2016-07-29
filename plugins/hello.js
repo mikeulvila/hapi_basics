@@ -14,5 +14,6 @@ exports.register = function (server, options, next) {
 };
 
 exports.register.attributes = {
-  name: 'hello'
+  name: 'hello',
+  dependencies: ['dep']
 };
