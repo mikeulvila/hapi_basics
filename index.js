@@ -9,9 +9,9 @@ server.connection({
 });
 
 // define prerequisite
-const pre1 = (request, reply) => {
+server.method('m1', (request, reply) => {
   return reply('Hello World');
-};
+});
 
 const pre2 = (request, reply) => {
   return reply('from hapi!');
@@ -30,7 +30,7 @@ server.route({
   },
   config: {
     pre: [[
-      { method: pre1, assign: 'm1'},
+      { method: 'm1'},
       { method: pre2, assign: 'm2'}
     ],
       { method: pre3, assign: 'm3'}
