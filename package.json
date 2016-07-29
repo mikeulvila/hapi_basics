@@ -1,0 +1,23 @@
+{
+  "name": "hapi_basics",
+  "version": "1.0.0",
+  "description": "hapi basic concepts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeulvila/hapi_basics.git"
+  },
+  "author": "Mike Ulvila <mikeulvila@me.com> (https://github.com/mikeulvila)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikeulvila/hapi_basics/issues"
+  },
+  "homepage": "https://github.com/mikeulvila/hapi_basics#readme",
+  "dependencies": {
+    "good": "^7.0.1",
+    "hapi": "^13.5.2"
+  }
+}
